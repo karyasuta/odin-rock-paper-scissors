@@ -40,3 +40,37 @@ function playRound() {
     Congrats, COMPUTER! You WON this round.`;
   }
 }
+
+function game() {
+  let playerWin = 0;
+  let cpuWin = 0;
+  let draws = 0;
+
+  for (let i = 1; i <= 5; i++) {
+    let playGame = playRound();
+    console.log(`Round: ${i}`);
+    console.log(playGame);
+    console.log("--------------------|&&|--------------------");
+
+    if (playGame.includes("PLAYER")) {
+      playerWin++;
+    } else if (playGame.includes("COMPUTER")) {
+      cpuWin++;
+    } else {
+      draws++;
+    }
+  }
+
+  console.log("FINAL RESULT:");
+  console.log(`Player Win: ${playerWin}`);
+  console.log(`Computer Win: ${cpuWin}`);
+  console.log(`Draws: ${draws}`);
+
+  if (playerWin > cpuWin) {
+    console.log("Final Result: Player WON the GAME!");
+  } else if (playerWin < cpuWin) {
+    console.log("Final Result: Computer WON the GAME!");
+  } else {
+    console.log("It's a DRAW! Nice!");
+  }
+}
